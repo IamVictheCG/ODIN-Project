@@ -101,12 +101,10 @@ body {
 }
 
 .second {
-    /* border: #0400ff solid 2px; */
     
     h2 {
         margin: 0%;
         text-align: center;
-        /* border: #3ffc6e solid 2px; */
     }
 
     .boxes {
