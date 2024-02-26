@@ -140,10 +140,8 @@ body {
     background-color: rgb(176, 176, 176);
     display: flex;
     justify-content: center;
-    /* padding: 20px; */
     align-items: center;
     .thor {
-        /* border:  2px solid rgb(25, 26, 27); */
         width: 50%;
         height: 150px;
         display: flex;
