@@ -38,36 +38,36 @@ let promptGenerator = () => {
   }
 };
 
-// let handleSelectColorEffect = (() => {
-//   let red = "#ff0000";
-//   let green = "#00ff00";
-//   let blue = "#0000ff";
-//   let black = "#000000";
-//   let selectedColor = black; // Default color
-//   // let plainColors = [red, green, blue, black];
-//   let selectColorEffect = $("#selectColorEffect");
+let handleSelectColorEffect = (() => {
+  let red = "#ff0000";
+  let green = "#00ff00";
+  let blue = "#0000ff";
+  let black = "#000000";
+  let selectedColor = black; // Default color
+  // let plainColors = [red, green, blue, black];
+  let selectColorEffect = $("#selectColorEffect");
 
-//   selectColorEffect.change(() => {
-//     shadingActive = false;
-//     erasingActive = false;
-//     let selectedValue = selectColorEffect.val();
+  selectColorEffect.change(() => {
+    shadingActive = false;
+    erasingActive = false;
+    let selectedValue = selectColorEffect.val();
 
-//     switch (selectedValue) {
-//       case red:
-//       case green:
-//       case blue:
-//       case black:
-//         selectedColor = selectedValue;
-//         console.log(selectedColor);
-//         break;
-//       default:
-//         selectedColor = "rgb";
-//         console.log(selectedColor);
-//     }
-//   });
+    switch (selectedValue) {
+      case red:
+      case green:
+      case blue:
+      case black:
+        selectedColor = selectedValue;
+        console.log(selectedColor);
+        break;
+      default:
+        selectedColor = "rgb";
+        console.log(selectedColor);
+    }
+  });
 
-//   return () => selectedColor; // Explicitly return the selected color
-// })();
+  return () => selectedColor; // Explicitly return the selected color
+})();
 
 // let shadingEffect = () => {
 //   shadingActive = true
