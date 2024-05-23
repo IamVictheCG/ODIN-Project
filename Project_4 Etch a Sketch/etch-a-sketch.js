@@ -81,53 +81,53 @@ let erasingEffect = () => {
   }
 };
 
-// let hoverEvent = () => {
-//   let clicked = false;
-//   console.log(clicked);
+let hoverEvent = () => {
+  let clicked = false;
+  console.log(clicked);
 
-//   function executeHoverEvent() {
-//     $(".grid").each((index, element) => {
-//       $(element).hover(function () {
-//         let currentColor;
-//         if (shadingActive) {
-//           let currentBgColor = $(this).css("background-color");
-//           let rgbArray = currentBgColor.match(/\d+/g).map(Number);
-//           console.log(rgbArray);
-//           let [R, G, B] = rgbArray.map(channel => Math.max(channel - 25, 0)); // Darken by 25
-//           console.log(G, R);
-//           currentColor = `rgb(${R},${G},${B})`;
-//           if (erasingActive) {
-//             console.log("object");
-//             currentColor = "rgb(255,255,255)";
-//           }
-//         } else if (erasingActive) {
-//           console.log("object");
-//           currentColor = "rgb(255,255,255)";
-//         } else {
-//           currentColor = handleSelectColorEffect();
-//           if (currentColor === "rgb") {
-//             let R = Math.floor(Math.random() * 256);
-//             let G = Math.floor(Math.random() * 256);
-//             let B = Math.floor(Math.random() * 256);
-//             currentColor = `rgb(${R}, ${G}, ${B})`;
-//           }
-//         }
-//         $(this).css("background-color", currentColor);
-//       });
-//     });
-//   }
-//   executeHoverEvent();
-//   $(gridContainer)[0].addEventListener("click", function () {
-//     clicked = !clicked;
-//     console.log(`clicked: ${clicked}`);
+  function executeHoverEvent() {
+    $(".grid").each((index, element) => {
+      $(element).hover(function () {
+        let currentColor;
+        if (shadingActive) {
+          let currentBgColor = $(this).css("background-color");
+          let rgbArray = currentBgColor.match(/\d+/g).map(Number);
+          console.log(rgbArray);
+          let [R, G, B] = rgbArray.map(channel => Math.max(channel - 25, 0)); // Darken by 25
+          console.log(G, R);
+          currentColor = `rgb(${R},${G},${B})`;
+          if (erasingActive) {
+            console.log("object");
+            currentColor = "rgb(255,255,255)";
+          }
+        } else if (erasingActive) {
+          console.log("object");
+          currentColor = "rgb(255,255,255)";
+        } else {
+          currentColor = handleSelectColorEffect();
+          if (currentColor === "rgb") {
+            let R = Math.floor(Math.random() * 256);
+            let G = Math.floor(Math.random() * 256);
+            let B = Math.floor(Math.random() * 256);
+            currentColor = `rgb(${R}, ${G}, ${B})`;
+          }
+        }
+        $(this).css("background-color", currentColor);
+      });
+    });
+  }
+  executeHoverEvent();
+  $(gridContainer)[0].addEventListener("click", function () {
+    clicked = !clicked;
+    console.log(`clicked: ${clicked}`);
 
-//     if (!clicked) {
-//       executeHoverEvent();
-//     } else {
-//       $(".grid").off("mouseenter mouseleave"); // Remove hover event handlers when not clicked
-//     }
-//   });
-// };
+    if (!clicked) {
+      executeHoverEvent();
+    } else {
+      $(".grid").off("mouseenter mouseleave"); // Remove hover event handlers when not clicked
+    }
+  });
+};
 
 
 
