@@ -26,17 +26,17 @@ let gridGenerator = (number) => {
   hoverEvent();
 };
 
-// let promptGenerator = () => {
-//   let gridLength = prompt("Enter your preferred Grid dimensions");
-//   gridLength = parseInt(gridLength);
+let promptGenerator = () => {
+  let gridLength = prompt("Enter your preferred Grid dimensions");
+  gridLength = parseInt(gridLength);
 
-//   if (gridLength <= 0 || gridLength >= 140 || isNaN(gridLength)) {
-//     alert("Please enter a number between 1 and 140");
-//     return;
-//   } else {
-//     gridGenerator(gridLength);
-//   }
-// };
+  if (gridLength <= 0 || gridLength >= 140 || isNaN(gridLength)) {
+    alert("Please enter a number between 1 and 140");
+    return;
+  } else {
+    gridGenerator(gridLength);
+  }
+};
 
 // let handleSelectColorEffect = (() => {
 //   let red = "#ff0000";
