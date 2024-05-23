@@ -22,7 +22,6 @@ let gridGenerator = (number) => {
     grid.setAttribute("class", "grid");
     grid.style.flexBasis = `${100 / number}%`;
     console.log(grid.style.flexBasis);
-    // console.log(grid);
   }
   hoverEvent();
 };
