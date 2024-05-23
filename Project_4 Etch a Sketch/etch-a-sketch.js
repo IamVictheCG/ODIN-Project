@@ -69,17 +69,17 @@ let handleSelectColorEffect = (() => {
   return () => selectedColor; // Explicitly return the selected color
 })();
 
-// let shadingEffect = () => {
-//   shadingActive = true
-//   erasingActive = false;
-// };
+let shadingEffect = () => {
+  shadingActive = true
+  erasingActive = false;
+};
 
-// let erasingEffect = () => {
-//   erasingActive = true
-//   if (erasingActive) {
-//     console.log("rrr");
-//   }
-// };
+let erasingEffect = () => {
+  erasingActive = true
+  if (erasingActive) {
+    console.log("rrr");
+  }
+};
 
 // let hoverEvent = () => {
 //   let clicked = false;
