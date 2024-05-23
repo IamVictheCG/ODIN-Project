@@ -131,15 +131,15 @@ let hoverEvent = () => {
 
 
 
-// clearGrid.click(() => {
-//   shadingActive = false;
-//   let grid = $(".grid");
-//   $(grid).each((index, element) => {
-//     $(element).css("background-color", "white");
-//   });
-//   console.log("clear");
-// });
+clearGrid.click(() => {
+  shadingActive = false;
+  let grid = $(".grid");
+  $(grid).each((index, element) => {
+    $(element).css("background-color", "white");
+  });
+  console.log("clear");
+});
 
-// $(generateBtn).click(promptGenerator);
-// shade.click(shadingEffect);
-// eraseGrid.click(erasingEffect)
+$(generateBtn).click(promptGenerator);
+shade.click(shadingEffect);
+eraseGrid.click(erasingEffect)
