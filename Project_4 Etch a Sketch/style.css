@@ -1,28 +1,65 @@
 :root {
-    --column-row-count : 10;
-    --column-size : 10%;
-    --row-size : 100px;
+    --column-row-count: ;
+    --column-size: ;
 }
-
 body {
-    border: 2px solid red;
+    border: 2px solid rgb(255, 255, 255);
     margin: 0px;
-    height: 100vh;
-    /* background-color: #00ffff; */
-    max-height: fit-content;
+    /* margin: auto; */
+    /* height: 100vh; */
+    /* max-height: fit-content; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    min-width: 706px;
 }
-.grid-container {
-    width: 100%;
-    border: 2px solid rebeccapurple;
-    display: grid;
-    grid-template-columns: repeat(var(--column-row-count), var(--column-size));
-    grid-template-rows: repeat(var(--column-row-count), var(--row-size));
 
-    .grid-item {
-        /* width: 100px; */
-        height: 100px;
-        border: 2px solid red;
-        background-color: rgb(0, 255, 85);
+
+
+.preferences {
+    /* border: blue 2px solid; */
+    width: 706px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+
+    .dimension {
+        margin: 0%;
+        background-color: rgb(27, 204, 122);
+        height: fit-content;
+        color: red;
+        padding-inline: 3px;
+    }
+}
+
+#grid-container {
+    background-color: #6b2020;
+    padding: 0px;
+    width: 706px;
+    height: 706px;
+    border: 2px solid #d505f5;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    .grid {
+        /* width: var(--column-size);
+        height: var(--row-size); */
+        /* border: 1px solid rgb(13, 0, 255); */
+        background-color: rgb(255, 255, 255);
+        aspect-ratio: 1;
         /* border-radius: 8px; */
     }
+}
+
+.warning {
+    background-color: rgb(255, 0, 0);
+    /* width: 100px;
+    height: 100px; */
+    position: absolute;
+    top: 50%;
+    left: 5%;
 }

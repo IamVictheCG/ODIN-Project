@@ -7,35 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <!-- <header>
         
-    </header>
+    </header> -->
     
-    <div class="preferrences">
-        
+    <div class="preferences">
+        <p class="dimension"><strong></strong></p>
+        <button class="generate">Generate Grid</button>
+        <button class="clear">Clear Grid</button>
+        <button class="erase">Erase</button>
+        <button class="shadeEffect">Shading Effect</button>
+        <div class="selectOption">
+            <label for="colorEffect">
+                Choose a color effect:
+            </label>
+            <select name="colorEffect" id="selectColorEffect">
+                <option value="#ff0000">Red</option>
+                <option value="#00ff00">Green</option>
+                <option value="#0000ff">Blue</option>
+                <option value="#000000" selected>Black</option>
+                <option value="rgb">RGB</option>
+            </select>
+        </div>
     </div>
-    <main class="grid-container">
-        <!-- <div class="grid-item">1</div>
-        <div class="grid-item">2</div>
-        <div class="grid-item">3</div>
-        <div class="grid-item">4</div>
-        <div class="grid-item">5</div>
-        <div class="grid-item">6</div>
-        <div class="grid-item">7</div>
-        <div class="grid-item">8</div>
-        <div class="grid-item">9</div>
-        <div class="grid-item">10</div>
-        <div class="grid-item">10</div>
-        <div class="grid-item">10</div>
-        <div class="grid-item">10</div>
-        <div class="grid-item">10</div>
-        <div class="grid-item">10</div>
-        <div class="grid-item">10</div>
-        <div class="grid-item">10</div>
-        <div class="grid-item">10</div>
-        <div class="grid-item">10</div>
-        <div class="grid-item">10</div> -->
-        </main>
+    <main id="grid-container">
+
+    </main>
+    <!-- <div>
+        <p class="warning">Grid on/off</p>
+    </div> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="etch-a-sketch.js"></script>
