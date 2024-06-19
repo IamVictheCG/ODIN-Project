@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="container">
+        <div class="view-point">
+            <div class="history">
+                <p>History</p>
+            </div>
+            <input type="text" id="display1" value="">
+            <input type="text" id="display2" disabled value="_ _ _">
+        </div>
+        <div class="button-container">
+            <div class="leftSide">
+                <div class="button math-functions">
+                    <p>&num;</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button math-functions">
+                    <p>&num;</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button math-functions">
+                    <p>&num;</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button action" id="clear">
+                    <p>AC</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button action" id="delete">
+                    <p>DE</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button sign" id="divide">
+                    <p>/</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button number">
+                    <p>7</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button number">
+                    <p>8</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button number">
+                    <p>9</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button number">
+                    <p>4</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button number">
+                    <p>5</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button number">
+                    <p>6</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button number">
+                    <p>1</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button number">
+                    <p>2</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button number">
+                    <p>3</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button number" id="zero">
+                    <p>0</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button dot">
+                    <p>.</p>
+                    <div class="glass"></div>
+                </div>
+            </div>
+
+            <div class="rightSide">
+                <div class="button math-functions">
+                    <p>&num;</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button sign" id="multiply">
+                    <p>*</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button sign" id="Subtract">
+                    <p>-</p>
+                    <div class="glass"></div>
+                </div>
+                <div class="button sign" id="Add">
+                    <p>+</p>
+                    <div class="glass"></div>
+                </div>
+                <div onclick="" class="button" id="equal">
+                    <p>&equals;</p>
+                    <div class="glass"></div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
