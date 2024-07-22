@@ -198,9 +198,16 @@ function calculateResult() {
 
 let squareFunction = ((num) => {
     console.log(num * num);
+    
+    if(previousInput ==='') {
+        num = currentInputFinal
+        console.log(num);
+    }
     let squaredValue = num * num;
     result = squaredValue;
+
     $(displayScreen1).val(result);
+
     currentInput = [];
     currentInput.push(result);
     currentInputFinal = "" + currentInput.join('');
@@ -212,6 +219,50 @@ let squareFunction = ((num) => {
     return num * num;
 })
 
+let sineFunction = ((num) => {
+
+    if(previousInput ==='') {
+        num = currentInputFinal
+        console.log(num);
+    }
+
+    let sineValue = Math.sin(num * Math.PI / 180);
+    console.log(sineValue);
+    result = sineValue
+
+    $(displayScreen1).val(result);
+
+    console.log("result: "+result);
+    currentInput = [];
+    currentInput.push(result);
+    currentInputFinal = "" + currentInput.join('');
+    previousInput = '';
+    lastOperator = '';
+    firstOperand = '';
+    tempResult = null;
+})
+
+let cosineFunction = ((num) => {
+
+    if(previousInput ==='') {
+        num = currentInputFinal
+        console.log(num);
+    }
+
+    let cosineValue = Math.cos(num * Math.PI / 180);
+    console.log(cosineValue);
+    result = cosineValue
+    $(displayScreen1).val(result);
+    
+    console.log("result: "+result);
+    currentInput = [];
+    currentInput.push(result);
+    currentInputFinal = "" + currentInput.join('');
+    previousInput = '';
+    lastOperator = '';
+    firstOperand = '';
+    tempResult = null;
+})
 
 
 let clearDisplay = (() => {
@@ -288,7 +339,7 @@ let finalAnswer = (() => {
             `currentInputFinal: ${currentInputFinal}`,
             `lastOperator: ${lastOperator}`,
             `previousInput: ${previousInput}`,
-            `tempResult: ${tempResult}`,
+            `Result: ${result}`,
             `displayScreen1Val: ${$(displayScreen1).val()}`
         ]);
 
@@ -308,6 +359,17 @@ $(squareBtn).click(() => {
     console.log("result");
     // console.log("object");
     squareFunction(result);
+})
+$(sineBtn).click(() => {
+    // console.log("result");
+    // console.log("object");
+    sineFunction(result)
+})
+
+$(cosineBtn).click(() => {
+    // console.log("result");
+    // console.log("object");
+    cosineFunction(result)
 })
 
 

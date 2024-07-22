@@ -115,6 +115,7 @@ body {
     .math-functions {
         background-color: rgb(235, 46, 46);
         opacity: 0.3;
+        /* pointer-events: none; */
     }
     #equal {
         background-color: rgb(4, 59, 162);
