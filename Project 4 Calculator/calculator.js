@@ -4,21 +4,25 @@ let displayScreen2 = $("#display2")[0];
 let deleteBtn = $("#delete")[0];
 let clearBtn = $("#clear")[0];
 let equalBtn = $("#equal")[0]
+let sine = $("#sine")[0]
+let cosine = $("#cosine")[0]
+let tangent = $("#tangent")[0]
+let square = $("#square")[0]
 let operatorSign = $(".sign").toArray();
-// console.log(operatorSign); 
 $(displayScreen1).val("0");
-// $(displayScreen2).val("0");
 
 let currentInput = [];
 let previousInput = '';
+let truncPreviousInput = '';
 let lastOperator = '';
 let firstOperand = '';
 let haveDot = false;
 let result = null;
 let tempResult = null;
+let tempInput = "";
 let currentInputFinal = "";
 let clickedNumber = '';
-let newPreviousInput;
+let newPreviousInput = [];
 
 operatorSign.forEach((operation) => {
     // console.log($(operation).find("p").html());
@@ -28,7 +32,7 @@ operatorSign.forEach((operation) => {
         lastOperator = operationName;
         console.log(lastOperator);
         previousInput += currentInputFinal;
-        console.log(previousInput);
+        // console.log(previousInput);
         
 
         if (tempResult === null) {
@@ -36,14 +40,17 @@ operatorSign.forEach((operation) => {
         } else {
             firstOperand = tempResult;
         }
-        console.log(tempResult);
+        // console.log(tempResult);
         displayScreen1.value = previousInput + lastOperator;
         previousInput += lastOperator;
+        lastOperator = lastOperator.trim()
 
         currentInput = [];
-        console.log(Array.isArray(currentInput));
-        console.log(currentInput);
+        // console.log(Array.isArray(currentInput));
+        // console.log(currentInput);
         currentInputFinal = "";
+        newPreviousInput = '';
+
 
         console.table([
             `firstOperand: ${firstOperand}`,
@@ -64,12 +71,28 @@ button.forEach(element => {
             clickedNumber = $(element).text().trim();
             currentInput.push(clickedNumber);
             currentInputFinal = "" + currentInput.join('');
-
+            // console.log(`previousInput: ${previousInput}, object`);
+            console.log(`newPreviousInput: ${newPreviousInput}`);
+            
+            
+            
+            
             if (previousInput === '') {
                 $(displayScreen1).val(currentInputFinal);
             } else {
                 $(displayScreen1).val(previousInput + currentInputFinal);
             }
+
+            // if (truncPreviousInput !== '') {
+            //         console.log(truncPreviousInput);
+            //     currentInputFinal = truncPreviousInput + currentInputFinal;
+            //     // $(displayScreen1).val(previousInput + currentInputFinal);
+            //     $(displayScreen1).val(currentInputFinal);
+            // }
+
+            // if (previousInput.length - 1) {
+                
+            // }
 
             console.table([
                 `firstOperand: ${firstOperand}`,
@@ -85,55 +108,46 @@ button.forEach(element => {
 
 
 
-        if ($(element).find('p').html() === '.' && !haveDot) {
-            let dot = $(element).find('p').html();
-            console.log(dot);
-            haveDot = true;
+        // if ($(element).find('p').html() === '.' && !haveDot) {
+        //     let dot = $(element).find('p').html();
+        //     console.log(dot);
+        //     haveDot = true;
 
             
 
-            if ( $(displayScreen1).val() == 0) {
-                currentInput.push(`0${dot}`);
-                currentInputFinal = currentInput.join('');
-                $(displayScreen1).val(previousInput + currentInputFinal);
-            } else {
-                if (currentInput.length === 0) {
-                    haveDot =  false;
-                    console.log("dead");
-                    return
-                }
-                currentInput.push(`${dot}`);
-                currentInputFinal = currentInput.join('');
-                $(displayScreen1).val(previousInput + currentInputFinal);
-            }
+        //     if ( $(displayScreen1).val() == 0) {
+        //         currentInput.push(`0${dot}`);
+        //         currentInputFinal = currentInput.join('');
+        //         $(displayScreen1).val(previousInput +" "+ currentInputFinal);
+        //     } else {
+        //         if (currentInput.length === 0) {
+        //             haveDot =  false;
+        //             console.log("dead");
+        //             return
+        //         }
+        //         currentInput.push(`${dot}`);
+        //         currentInputFinal = currentInput.join('');
+        //         $(displayScreen1).val(previousInput +" "+ currentInputFinal);
+        //     }
 
-            console.table([
-                `firstOperand: ${firstOperand}`,
-                `currentInput: ${currentInput}`,
-                `currentInputFinal: ${currentInputFinal}`,
-                `lastOperator: ${lastOperator}`,
-                `previousInput: ${previousInput}`,
-                `tempResult: ${tempResult}`,
-                `haveDot: ${haveDot}`,
-                `displayScreen1Val: ${$(displayScreen1).val()}`,
-            ]);
+        //     console.table([
+        //         `firstOperand: ${firstOperand}`,
+        //         `currentInput: ${currentInput}`,
+        //         `currentInputFinal: ${currentInputFinal}`,
+        //         `lastOperator: ${lastOperator}`,
+        //         `previousInput: ${previousInput}`,
+        //         `tempResult: ${tempResult}`,
+        //         `haveDot: ${haveDot}`,
+        //         `displayScreen1Val: ${$(displayScreen1).val()}`,
+        //     ]);
 
-        } else if($(element).find('p').html() === '.' && haveDot) {
-            return;
-        }
+        // } else if($(element).find('p').html() === '.' && haveDot) {
+        //     return;
+        // }
 
         if (firstOperand && currentInputFinal && lastOperator) {
             calculateResult();
             tempResult = result;
-            console.table([
-                `firstOperand: ${firstOperand}`,
-                `currentInput: ${currentInput}`,
-                `currentInputFinal: ${currentInputFinal}`,
-                `lastOperator: ${lastOperator}`,
-                `previousInput: ${previousInput}`,
-                `tempResult: ${tempResult}`,
-                `displayScreen1Val: ${$(displayScreen1).val()}`,
-            ]);
         }
     });
 });
@@ -166,19 +180,19 @@ function calculateResult() {
         default:
             return;
     }
-
-    $(displayScreen2).val(result);
+    tempResult = result
+    $(displayScreen2).val(tempResult);
     // firstOperand = result;
 
-    console.table([
-        `firstOperand: ${firstOperand}`,
-        `currentInput: ${currentInput}`,
-        `currentInputFinal: ${currentInputFinal}`,
-        `lastOperator: ${lastOperator}`,
-        `previousInput: ${previousInput}`,
-        `tempResult: ${tempResult}`,
-        `displayScreen1Val: ${$(displayScreen1).val()}`
-    ]);
+    // console.table([
+    //     `firstOperand: ${firstOperand}`,
+    //     `currentInput: ${currentInput}`,
+    //     `currentInputFinal: ${currentInputFinal}`,
+    //     `lastOperator: ${lastOperator}`,
+    //     `previousInput: ${previousInput}`,
+    //     `tempResult: ${tempResult}`,
+    //     `displayScreen1Val: ${$(displayScreen1).val()}`
+    // ]);
     // currentInput = [];
 }
 
@@ -186,12 +200,15 @@ function calculateResult() {
 
 let clearDisplay = (() => {
     // console.log($(displayScreen1).attr("value"));
-    currentInput = '';
+    currentInput = [];
     lastOperator = '';
     firstOperand = '';
     previousInput = '';
     result = null;
     haveDot = false;
+    currentInput = [];
+    currentInputFinal = "" + currentInput.join('');
+    tempResult = null;
     $(displayScreen1).val("0");
     $(displayScreen2).val('_ _ _');
     console.log(`firstOperand: ${firstOperand}`);
@@ -200,25 +217,21 @@ let clearDisplay = (() => {
     console.log(`previousInput: ${previousInput}`);
 })
 
-let deleteFunction = (() => {
     
-    if (currentInputFinal.length === 0) {
-        tempResult = null;
-        if ($(displayScreen1).val()[$(displayScreen1).val().length - 1] === lastOperator || previousInput.length !== 0) {
-            previousInput = previousInput.slice(0, -1);
-            firstOperand = '';
-            currentInputFinal = previousInput
-            previousInput ='';
-        }
-            $(displayScreen1).val(previousInput + currentInputFinal);
-            $(displayScreen2).val('_ _ _')
-    } else {
-        currentInput.pop();
-        currentInputFinal = currentInput.join("");
-        calculateResult();
+let deleteFunction = (() => {
+    if (currentInput.length > 0) {
+        currentInput = currentInput.slice(0, -1);
+        currentInputFinal = "" + currentInput.join('');
         $(displayScreen1).val(previousInput + currentInputFinal);
     }
+    if(currentInput.length < 1) {
+        console.log(previousInput);
+    }
+    
 
+    calculateResult();
+
+    // Reset the state if both currentInput and previousInput are empty
     if (currentInput.length === 0 && previousInput.length === 0) {
         currentInput = [];
         lastOperator = '';
@@ -227,22 +240,43 @@ let deleteFunction = (() => {
         tempResult = null;
         $(displayScreen1).val("0");
         $(displayScreen2).val("_ _ _");
-    } else {
-        // previousInput.join()
-        $(displayScreen1).val(previousInput + currentInputFinal);
-        calculateResult();
     }
-    console.table([
-        `firstOperand: ${firstOperand}`,
-        `currentInput: ${currentInput}`,
-        `currentInputFinal: ${currentInputFinal}`,
-        `lastOperator: ${lastOperator}`,
-        `previousInput: ${previousInput}`,
-        `tempResult: ${tempResult}`,
-        `displayScreen1Val: ${$(displayScreen1).val()}`
-    ]);
-    
-    // $(displayScreen1).val(displayScreen1Value);
+
+    // console.table([
+    //     `firstOperand: ${firstOperand}`,
+    //     `currentInput: ${currentInput}`,
+    //     `currentInputFinal: ${currentInputFinal}`,
+    //     `lastOperator: ${lastOperator}`,
+    //     `previousInput: ${previousInput}`,
+    //     `tempResult: ${tempResult}`,
+    //     `displayScreen1Val: ${$(displayScreen1).val()}`
+    // ]);
+});
+
+let finalAnswer = (() => {
+    if (currentInput.length > 0) {
+        console.log($(displayScreen2).val());
+        $(displayScreen1).val(tempResult);
+        $(displayScreen2).val("_ _ _");
+        currentInput = [];
+        currentInput.push(tempResult);
+        currentInputFinal = "" + currentInput.join('');
+        previousInput = '';
+        lastOperator = '';
+        firstOperand = '';
+        tempResult = null;
+
+        console.table([
+            `firstOperand: ${firstOperand}`,
+            `currentInput: ${currentInput}`,
+            `currentInputFinal: ${currentInputFinal}`,
+            `lastOperator: ${lastOperator}`,
+            `previousInput: ${previousInput}`,
+            `tempResult: ${tempResult}`,
+            `displayScreen1Val: ${$(displayScreen1).val()}`
+        ]);
+
+    }
 })
 
 $(clearBtn).click(() => {
@@ -257,6 +291,7 @@ $(deleteBtn).click(() => {
 
 
 $(equalBtn).click(function () {
+    finalAnswer()
     // console.log("object");
 
     // calculateResult();

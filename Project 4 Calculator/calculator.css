@@ -1,15 +1,18 @@
+html {
+    background-color: rgb(45, 28, 109);
+}
 body {
     margin: 0%;
     /* border: #ff0000 solid 1px; */
-    /* background-color: rgb(59, 17, 225); */
-    background-image: url(./images\ \(2\).jpg);
+    /* background-image: url(./images\ \(2\).jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover  ;
-    height: 100vh;
+    height: 100vh; */
 }
 
 .container {
+    margin: auto;
     background-color: black;
     color: white;
     /* border: solid 2px rgb(255, 0, 0); */
@@ -107,6 +110,11 @@ body {
         color: #4385ff;
         font-size: 30px;
         font-weight: bolder;
+    }
+
+    .math-functions {
+        background-color: rgb(235, 46, 46);
+        opacity: 0.3;
     }
     #equal {
         background-color: rgb(4, 59, 162);
