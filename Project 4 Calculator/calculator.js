@@ -4,10 +4,10 @@ let displayScreen2 = $("#display2")[0];
 let deleteBtn = $("#delete")[0];
 let clearBtn = $("#clear")[0];
 let equalBtn = $("#equal")[0]
-let sine = $("#sine")[0]
-let cosine = $("#cosine")[0]
-let tangent = $("#tangent")[0]
-let square = $("#square")[0]
+let sineBtn = $("#sine")[0]
+let cosineBtn = $("#cosine")[0]
+let tangentBtn = $("#tangent")[0]
+let squareBtn = $("#square")[0]
 let operatorSign = $(".sign").toArray();
 $(displayScreen1).val("0");
 
@@ -196,6 +196,22 @@ function calculateResult() {
     // currentInput = [];
 }
 
+let squareFunction = ((num) => {
+    console.log(num * num);
+    let squaredValue = num * num;
+    result = squaredValue;
+    $(displayScreen1).val(result);
+    currentInput = [];
+    currentInput.push(result);
+    currentInputFinal = "" + currentInput.join('');
+    previousInput = '';
+    lastOperator = '';
+    firstOperand = '';
+    tempResult = null;
+    console.log(currentInput);
+    return num * num;
+})
+
 
 
 let clearDisplay = (() => {
@@ -286,6 +302,12 @@ $(clearBtn).click(() => {
 $(deleteBtn).click(() => {
     // console.log("object");
     deleteFunction();
+})
+
+$(squareBtn).click(() => {
+    console.log("result");
+    // console.log("object");
+    squareFunction(result);
 })
 
 
