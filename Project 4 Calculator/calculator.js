@@ -253,7 +253,7 @@ let cosineFunction = ((num) => {
     console.log(cosineValue);
     result = cosineValue
     $(displayScreen1).val(result);
-    
+
     console.log("result: "+result);
     currentInput = [];
     currentInput.push(result);
@@ -264,6 +264,27 @@ let cosineFunction = ((num) => {
     tempResult = null;
 })
 
+let tangentFunction = ((num) => {
+
+    if(previousInput ==='') {
+        num = currentInputFinal
+        console.log(num);
+    }
+
+    let tangentValue = Math.tan(num * Math.PI / 180);
+    console.log(tangentValue);
+    result = tangentValue
+    $(displayScreen1).val(result);
+    
+    console.log("result: "+result);
+    currentInput = [];
+    currentInput.push(result);
+    currentInputFinal = "" + currentInput.join('');
+    previousInput = '';
+    lastOperator = '';
+    firstOperand = '';
+    tempResult = null;
+})
 
 let clearDisplay = (() => {
     // console.log($(displayScreen1).attr("value"));
@@ -370,6 +391,12 @@ $(cosineBtn).click(() => {
     // console.log("result");
     // console.log("object");
     cosineFunction(result)
+})
+
+$(tangentBtn).click(() => {
+    // console.log("result");
+    // console.log("object");
+    tangentFunction(result)
 })
 
 
