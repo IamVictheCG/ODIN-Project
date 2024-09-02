@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mynerve&family=Sankofa+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="blocks" id="leftSide">
+        <!-- <img src="olena-bohovyk-r0M9HrfJMBM-unsplash.jpg" alt="treeInHand"> -->
+        <div class="blackBack"></div>
+        <div class="odinHead">
+            <img src="odin-lined.png" alt="odin image">
+            <p>ODIN</p>
+        </div>
+
+    </div>
+    <div class="blocks" id="rightSide">
+        <p class="intro"><b>This is not a real online service. You know you need something <br> like 
+            this in life to help you realize your deepest dreams.<br>
+            Sign up now to get started.
+            <br>
+            <br>
+            You know you want to.
+        </b></p>
+
+        <div class="form_block">
+            <p><b>Let's do this!</b></p>
+            <form class="form" action="https://victorcg.netlify.app/" method="post">
+                <div>
+                    <div class="formArea">
+                        <div class="input_field">
+                            <label for="firstName">First Name</label>
+                            <input type="text" name="firstName">
+                        </div>
+                        
+                        <div class="input_field">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" name="lastName">
+                        </div>
+        
+                        <div class="input_field">
+                            <label for="email">Email</label>
+                            <input type="email" name="email">
+                        </div>
+        
+                        <div class="input_field">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="text" name="phoneNumber">
+                        </div>
+        
+                        <div class="input_field passwords">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" pattern="/^[a-zA-Z]\d{5, 10}$/" title="Please enter a valid password" required>
+                            <p class="warning">*passwords do not match</p>
+                        </div>
+        
+                        <div class="input_field passwords">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" name="confirmPassword" pattern="/^[a-zA-Z]\d{5, 10}$/" title="Please enter a valid password" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit">CREATE ACCOUNT</button>
+                    <p class="login">Already have an account? <span>Log in</span></p>
+                </div>
+
+            </form>
+            
+        </div>
+        
+    </div>
+</body>
+</html>

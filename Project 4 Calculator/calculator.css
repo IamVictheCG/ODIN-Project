@@ -113,8 +113,8 @@ body {
     }
 
     .math-functions {
-        background-color: rgb(235, 46, 46);
-        opacity: 0.3;
+        background-color: rgb(4, 59, 162);
+        opacity: 1;
         /* pointer-events: none; */
     }
     #equal {
@@ -128,8 +128,6 @@ body {
     }
 
     .leftSide {
-        /* border: 2px solid red; */
-        /* flex: 4; */
         width: 80%;
         height: 100%;
         display: grid;
@@ -138,11 +136,6 @@ body {
         grid-template-rows: 8% 16.4% 16.4% 16.4% 16.4% 16.4%;
         column-gap: 2%;
         row-gap: 2%;
-        /* justify-content: space-around; */
-        
-        /* .button {
-            width: 31.3%;
-        } */
         
         #zero {
             flex: 2;
@@ -155,10 +148,7 @@ body {
         width: 20%;
         display: grid;
         row-gap: 2%;
-        /* border: 2px solid rgb(0, 17, 255); */
-        /* display: grid; */
         flex-direction: column;
-        /* gap: 2%; */
         grid-template-rows: 8% 16.4% 16.4% auto auto;
     } 
 }
