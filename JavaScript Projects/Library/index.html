@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Cool Library</h1>
+    <div class="container">
+        <div>
+            <h3>Your Collection</h3>
+            <button id="add">Add a New Book</button>
+        </div>
+        <div id="library">
+            <!-- <div class="card">
+                <h2 class="title">Book Title</h2>
+                <img src="./undefined - Imgur.png" alt="thumbnail">
+                <h3 class="author"><span>By</span> Author</h3>
+                <p><i>Published in the year 2023</i></p>
+            </div> -->
+        </div>
+
+        <div id="addBook">
+            <div>
+                <b>Book Details</b>
+                <img id="close" src="./assets/close.svg" alt="close">
+            </div>
+            <div>
+                <label for="title">Title</label>
+                <input name="title" class="add_title" type="text" placeholder="Title">
+
+                <label for="author">Author</label>
+                <input name="author" class="add_author" type="text" placeholder="Author">
+
+                <label for="publishedYear">Year Published</label>
+                <input name="publishedYear" class="add_publishedYear" type="text" placeholder="Year Published">
+    
+                <button id="add_submit">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
