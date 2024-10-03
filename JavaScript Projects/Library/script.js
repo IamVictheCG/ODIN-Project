@@ -199,7 +199,11 @@
     function addBookToLibrary() {
         // Add a new book to the library
         console.log(addTitle[0].value);
-        var book = new Book(addTitle[0].value, addAuthor[0].value, addPublishedYear[0].value);
+        var book = new Book(
+            addTitle[0].value,
+            addAuthor[0].value,
+            addPublishedYear[0].value
+        );
         myLibrary.push(book);
 
         library.innerHTML = ""
