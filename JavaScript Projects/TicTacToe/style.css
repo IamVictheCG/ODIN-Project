@@ -51,7 +51,7 @@ body {
     max-width: 528.4px;
     min-height: 485.2px;
     height: fit-content;
-    height: fit-content;
+    /* height: fit-content; */
     /* margin: auto; */
     display: grid;
     grid-template-columns: repeat(3, 176.1px);
