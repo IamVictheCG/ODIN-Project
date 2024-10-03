@@ -67,6 +67,8 @@ const Gameboard = function () {
                 const cachedPlayers = cachedElements.players;
                 $(cachedPlayers[0]).attr('id', 'player1');
                 $(restart).css("display", "block");
+                $(cachedElements.winnerMsg).html("DRAW")
+                $(cachedElements.winnerMsg).css("display", "block")
                 $(restart).click(() => gameController.startOver());
             }
             console.log("isBoardFull:" + isBoardFull);
