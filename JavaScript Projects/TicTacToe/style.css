@@ -17,12 +17,18 @@ body {
 
     .s1 {
         color: blue;
+        margin-bottom: 10px;
+        border-bottom: 2px solid red;
     }
     .s2 {
         color: white;
+        margin-bottom: 10px;
+        border-bottom: 2px solid white;
     }
     .s3 {
         color: red;
+        margin-bottom: 10px;
+        border-bottom: 2px solid blue;
     }
 }
 
@@ -74,7 +80,7 @@ body {
     }
     .player1 {
         /* border: 2px solid white; */
-        color: rgb(0, 179, 255);
+        color: #00b3ff;
         text-align: center;
     }
     .player2 {
