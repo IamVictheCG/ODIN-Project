@@ -6,6 +6,7 @@ let cacheDom = () => {
     let allCells = Array.from(cells);
     let board = $(".board");
     let winnerMsg = $(".winMessage")
+    let restart = $(".restart")
     console.log($(board).width());
     // $(board).css("borderColor", "red");                 
     
@@ -14,6 +15,7 @@ let cacheDom = () => {
         allCells,
         cellsText,
         winnerMsg,
+        restart,
         board
     };
 };
@@ -24,7 +26,9 @@ const Gameboard = function () {
     const board = [];
     const row = 3;
     const column = 3;
-    let allCells = cachedElements.allCells;
+    const allCells = cachedElements.allCells;
+    const restart = cachedElements.restart  
+    let isBoardFull = false
 
     for (let i = 0; i < row; i++) {
         board[i] = [];
@@ -56,6 +60,16 @@ const Gameboard = function () {
             const cellValue = board[row][column].getValue();
             $(cellElement).html(`<p>${cellValue}</p>`);
             // console.log(currentPlayer);
+            boardStatus()
+            if (boardStatus()) {
+                console.log("FULL");
+                isBoardFull = true
+                const cachedPlayers = cachedElements.players;
+                $(cachedPlayers[0]).attr('id', 'player1');
+                $(restart).css("display", "block");
+                $(restart).click(() => gameController.startOver());
+            }
+            console.log("isBoardFull:" + isBoardFull);
 
             if (currentPlayer.symbol === "X") {
                 $(cellElement).find(cellText);
@@ -63,7 +77,7 @@ const Gameboard = function () {
                 // console.log($(cellElement).addClass("player1"));
                 console.log($(cellElement));
             } else {
-                $(cellElement).find(cellText);                                                                                                                                                                                  
+                $(cellElement).find(cellText);                                      
                 $(cellElement).addClass("player2")
                 // console.log($(cellElement).addClass("player2"));
                 console.log($(cellElement));
@@ -96,7 +110,7 @@ const Gameboard = function () {
         // Check for row winners
         for (let i = 0; i < 3; i++) {
             if (
-                board[i][0].getValue() !== 0 &&
+                board[i][0].getValue() !== "" &&
                 board[i][0].getValue() === board[i][1].getValue() &&
                 board[i][0].getValue() === board[i][2].getValue()
             ) {
@@ -108,7 +122,7 @@ const Gameboard = function () {
         // Check for column winners
         for (let i = 0; i < 3; i++) {
             if (
-                board[0][i].getValue() !== 0 &&
+                board[0][i].getValue() !== "" &&
                 board[0][i].getValue() === board[1][i].getValue() &&
                 board[0][i].getValue() === board[2][i].getValue()
             ) {
@@ -119,7 +133,7 @@ const Gameboard = function () {
     
         // Check for diagonal winners
         if (
-            board[0][0].getValue() !== 0 &&
+            board[0][0].getValue() !== "" &&
             board[0][0].getValue() === board[1][1].getValue() &&
             board[0][0].getValue() === board[2][2].getValue()
         ) {
@@ -128,7 +142,7 @@ const Gameboard = function () {
         }
     
         if (
-            board[0][2].getValue() !== 0 &&
+            board[0][2].getValue() !== "" &&
             board[0][2].getValue() === board[1][1].getValue() &&
             board[0][2].getValue() === board[2][0].getValue()
         ) {
@@ -145,9 +159,27 @@ const Gameboard = function () {
             row.map((cell) => cell.getValue())
         );
         console.log(boardWithCellsValues);
+        // boardStatus()
     };
+    const resetBoard = () => {
+        allCells.forEach((cell) => {
+            $(cell).html("<p> </p>")
+            $(cell).removeClass("player1 player2 winner")
+        })
+        const boardWithoutCellsValues = board.map((row) =>
+            row.map((cell) => cell.resetCell())
+        );
+        console.log(boardWithoutCellsValues);
+    };
+    const boardStatus = () => {
+        console.log(board.every((row) => row.every((cell) => cell.getValue() !== "")));
+        return board.every((row) => row.every((cell) => cell.getValue() !== ""))
+    }
 
-    return { placeToken, getBoard, printBoard, checkWinner, handleCellClick };
+    
+    // console.log(isBoardFull);
+    // $(restart).click(() => resetBoard())
+    return { placeToken, getBoard, printBoard, checkWinner, handleCellClick, resetBoard, isBoardFull };
 };
 
 let GameController = function () {
@@ -165,20 +197,23 @@ let GameController = function () {
     let player_2_Cells = [];
     let cachedElements = cacheDom();
     let winnerMsg = cachedElements.winnerMsg
+    let restart = cachedElements.restart
     let allCells = cachedElements.allCells;
+    let isBoardFull = board.isBoardFull
     console.log(allCells);
+    const cachedPlayers = cachedElements.players;
+    $(cachedPlayers[0]).attr('id', 'player1');
 
     const switchPlayers = () => {
-        const cachedPlayers = cacheDom().players;
         console.log(cachedPlayers);
         activePlayer = activePlayer === players[0] ?( () => {
-            $(cachedPlayers[1]).attr('id', '');
-            $(cachedPlayers[0]).attr('id', 'player1');
+            $(cachedPlayers[0]).attr('id', '');
+            $(cachedPlayers[1]).attr('id', 'player2');
             return players[1];
         })() : (() => {
-            $(cachedPlayers[0]).attr('id', '');
+            $(cachedPlayers[1]).attr('id', '');
             // console.log(cachedPlayers[0]);
-            $(cachedPlayers[1]).attr('id', 'player2');
+            $(cachedPlayers[0]).attr('id', 'player1');
             return players[0];
         })()
     };
@@ -192,6 +227,19 @@ let GameController = function () {
             console.log(`${getActivePlayer().name}'s turn.`);
         }
     };
+
+    const startOver = () => {
+        const cachedPlayers = cacheDom().players;
+        gameWon = false;
+        switchPlayers()
+        allMoves = [];
+        board.resetBoard();
+        $(winnerMsg).css("display", "none")
+        $(cachedPlayers[1]).attr('id', '');
+        $(cachedPlayers[0]).attr('id', 'player1');
+        console.log("Restarted");
+        $(restart).css('display', 'none')
+    }
 
     const playRound = (row, column) => {
         const player = getActivePlayer();
@@ -217,7 +265,7 @@ let GameController = function () {
         
         player_1_Cells = []
         player_2_Cells = []
-        console.log(player_1_Cells);
+        // console.log(player_1_Cells);
         
         player_1_moves.forEach((move) => {
             for (let i = 0; i < allCells.length; i++) {
@@ -225,7 +273,7 @@ let GameController = function () {
                     move.row == $(allCells[i]).attr("row") &&
                     move.column == $(allCells[i]).attr("column")
                 ) {
-                    console.log(allCells[i]);
+                    // console.log(allCells[i]);
                     player_1_Cells.push(allCells[i])
                 }
                 
@@ -237,7 +285,7 @@ let GameController = function () {
                     move.row == $(allCells[i]).attr("row") &&
                     move.column == $(allCells[i]).attr("column")
                 ) {
-                    console.log(allCells[i]);
+                    // console.log(allCells[i]);
                     player_2_Cells.push(allCells[i])
                 }
                 
@@ -248,7 +296,14 @@ let GameController = function () {
         // console.log(`Player 2 cells: ${player_2_Cells.length}`);
         console.log($(player_2_Cells[1]).attr("row"), ($(player_2_Cells[1]).attr("column")));
 
+        // if (isBoardFull) {
+        //     console.log(isBoardFull);
+        //     $(restart).css("display", "block")
+        //     $(restart).click(() => startOver())
+        // }
+
         const {winner, winningCells} = board.checkWinner();
+
         if (winner) {
             gameWon = true;
             console.log(`${player.name} wins!`);
@@ -263,6 +318,8 @@ let GameController = function () {
             })
 
             $(winnerMsg).text(`${player.name} wins!`)
+            $(restart).css("display", "block")
+            $(restart).click(() => startOver())
         } else {
             switchPlayers();
             printNewTurn();
@@ -277,12 +334,13 @@ let GameController = function () {
         playRound,
         allMoves,
         player_1_Cells,
-        player_2_Cells
+        player_2_Cells, 
+        startOver
     };
 };
 
 let cell = function () {
-    let value = 0;
+    let value = "";
 
     const addToken = (player) => {
         value = player;
@@ -290,9 +348,13 @@ let cell = function () {
 
     const getValue = () => value;
 
+    const resetCell = () => value = "";
+
+
     return {
         addToken,
         getValue,
+        resetCell
     };
 };
 

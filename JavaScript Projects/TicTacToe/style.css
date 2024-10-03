@@ -1,6 +1,12 @@
 body {
     margin: 0%;
     background-color: rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    gap: 8px;
 }
 .title {
     margin: 0%;
@@ -23,9 +29,13 @@ body {
 .playersList {
     display: flex;
     justify-content: space-between;
-    margin: auto;
+    margin: 0%;
     width: 95%;
     color: rgb(255, 255, 255);
+    
+    h3 {
+        margin: 0%;
+    }
 
     #player1 {
         color: rgb(0, 179, 255);
@@ -36,13 +46,13 @@ body {
 }
 
 .board {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     /* width: 50%; */
     max-width: 528.4px;
-    max-height: 483.2px;
+    min-height: 485.2px;
     height: fit-content;
     height: fit-content;
-    margin: auto;
+    /* margin: auto; */
     display: grid;
     grid-template-columns: repeat(3, 176.1px);
     grid-template-rows: repeat(3, auto);
@@ -52,6 +62,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 170px;
         
         p {
             font-size: 50px;
@@ -64,10 +75,9 @@ body {
         /* border: 2px solid white; */
         color: rgb(0, 179, 255);
         text-align: center;
-        height: fit-content;
-        margin: 0%;
     }
     .player2 {
+        text-align: center;
         color: rgb(255, 0, 0);
     }
     
@@ -76,3 +86,10 @@ body {
     }
 }
 
+.restart {
+    background-color: white;
+    padding-block: 5px;
+    padding-inline: 8px;
+    width: 100px;
+    display: none;
+}
