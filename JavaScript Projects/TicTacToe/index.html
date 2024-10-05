@@ -8,35 +8,41 @@
   <link href="mobile.css" rel="stylesheet" type="text/css" media="screen and (max-width: 430px)"/>
 </head>
 <body>
-  <h1 class="title">
-    <span class="s1">Tic</span> 
-    <span class="s2">Tac</span>
-    <span class="s3">Toe</span>
-  </h1>
-  <div class="playersList">
-    <h3 class="players" symbol="X">Player 1 <br> X</h3>
-    <h3 class="winMessage"></h3>
-    <h3 class="players" symbol="O">Player 2 <br> O</h3>
+  <div class="container">
+    <h1 class="title">
+      <span class="s1">Tic</span> 
+      <span class="s2">Tac</span>
+      <span class="s3">Toe</span>
+    </h1>
+    <div class="playersList">
+      <h3 class="players" symbol="X">Player 1 <br> X</h3>
+      <h3 class="winMessage colorMix"></h3>
+      <h3 class="players" symbol="O">Player 2 <br> O</h3>
+    </div>
+    <div class="board">
+      <!-- <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div> -->
+      <!-- <script class="cell" type="text/template">
+        {{#cell}}
+        <div class="cell">
+          <p><span>{{.}}</span></p>
+        </div>
+        {{/cell}}
+      </script> -->
+    </div>
+    <Button class="restart">Play again</Button>
+    <footer>
+      <p>VictorCG © 2024</p>
+    </footer>
+    
   </div>
-  <div class="board">
-    <!-- <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div> -->
-    <!-- <script class="cell" type="text/template">
-      {{#cell}}
-      <div class="cell">
-        <p><span>{{.}}</span></p>
-      </div>
-      {{/cell}}
-    </script> -->
-  </div>
-  <Button class="restart">Play again</Button>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="script.js"></script>

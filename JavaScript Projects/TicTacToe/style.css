@@ -1,11 +1,19 @@
 body {
     margin: 0%;
+    height: 100vh;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: rebeccapurple;
+}
+.container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    /* border: 2px solid rgb(0, 17, 255); */
+    margin: 0%;
     gap: 8px;
 }
 .title {
@@ -33,6 +41,7 @@ body {
 }
 
 .playersList {
+    /* border-bottom: 2px solid blue; */
     display: flex;
     justify-content: space-between;
     margin: 0%;
@@ -51,11 +60,18 @@ body {
     }
 }
 
+.colorMix{
+    animation: normal;
+    animation-name: colorMix;
+    animation-duration: 3s;
+    animation-iteration-count: 2;
+}
+
 .board {
     /* margin-top: 30px; */
     /* width: 50%; */
     max-width: 528.4px;
-    min-height: 485.2px;
+    min-height: 475.2px;
     height: fit-content;
     /* height: fit-content; */
     /* margin: auto; */
@@ -69,7 +85,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 170px;
+        height: 158px;
         
         p {
             font-size: 50px;
@@ -99,4 +115,26 @@ body {
     padding-inline: 8px;
     width: 100px;
     display: none;
+}
+
+footer {
+    color: rgb(134, 241, 241);
+    margin-top: 5px;
+
+    p {
+        margin: 0%;
+        text-align: center;
+    }
+}
+
+@keyframes colorMix {
+    0% {
+        color: blue;
+    }
+    50% {
+        color: white;
+    }
+    100% {
+        color: red;
+    }
 }

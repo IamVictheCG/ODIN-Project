@@ -69,6 +69,7 @@ const Gameboard = function () {
                 $(restart).css("display", "block");
                 $(cachedElements.winnerMsg).html("DRAW")
                 $(cachedElements.winnerMsg).css("display", "block")
+                $(cachedElements.winnerMsg).addClass("colorMix")
                 $(restart).click(() => gameController.startOver());
             }
             console.log("isBoardFull:" + isBoardFull);
@@ -237,10 +238,13 @@ let GameController = function () {
         allMoves = [];
         board.resetBoard();
         $(winnerMsg).css("display", "none")
+        $(winnerMsg).removeClass("colorMix")
         $(cachedPlayers[1]).attr('id', '');
         $(cachedPlayers[0]).attr('id', 'player1');
         console.log("Restarted");
         $(restart).css('display', 'none')
+        // printNewTurn();
+        gameController()
     }
 
     const playRound = (row, column) => {
