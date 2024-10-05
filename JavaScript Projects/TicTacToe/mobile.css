@@ -7,7 +7,7 @@
     /* gap: 8px; */
     /* height: 100vh; */
     overflow: hidden;
-    border: 2px solid rgb(255, 0, 30);
+    /* border: 2px solid rgb(255, 0, 30); */
     padding-bottom: 60px;
 }
 
@@ -17,7 +17,7 @@
 }
 .board {
     width: 96%;
-    min-height: 405.2px;
+    min-height: 390.2px;
     margin: auto;
     margin-top: 30px;
     /* height: 100px; */
@@ -30,7 +30,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 135.06px;
+        height: 130.06px;
         max-height: 135.06px;
         
         p {
