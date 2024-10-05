@@ -206,6 +206,7 @@ let GameController = function () {
     console.log(allCells);
     const cachedPlayers = cachedElements.players;
     $(cachedPlayers[0]).attr('id', 'player1');
+    $(winnerMsg).css("display", "none")
 
     const switchPlayers = () => {
         console.log(cachedPlayers);
@@ -237,14 +238,23 @@ let GameController = function () {
         switchPlayers()
         allMoves = [];
         board.resetBoard();
+
+
         $(winnerMsg).css("display", "none")
         $(winnerMsg).removeClass("colorMix")
+        $(winnerMsg).text("")
+
+        //Reset Player Highlighting
         $(cachedPlayers[1]).attr('id', '');
         $(cachedPlayers[0]).attr('id', 'player1');
         console.log("Restarted");
+
+
         $(restart).css('display', 'none')
         // printNewTurn();
-        gameController()
+        // activePlayer = players[0];
+        // getActivePlayer();
+        console.log("Game restarted. Player 1 starts.");
     }
 
     const playRound = (row, column) => {
@@ -323,8 +333,12 @@ let GameController = function () {
                 })
             })
 
+            $(winnerMsg).css("display", "block")
+            $(winnerMsg).addClass("colorMix");
             $(winnerMsg).text(`${player.name} wins!`)
             $(restart).css("display", "block")
+
+
             $(restart).click(() => startOver())
         } else {
             switchPlayers();
