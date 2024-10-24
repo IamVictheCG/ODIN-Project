@@ -2,6 +2,25 @@ let playerPoint = 0;
 let computerPoint = 0;
 let roundCount = 0;
 let roundCountDom_value = 1;
+let roundNumber;
+
+
+
+let promptGenerator = () => {
+  roundNumber = prompt("Enter your preferred number of rounds. Max: 14");
+  roundNumber = Number(roundNumber);
+
+  if (roundNumber <= 0 || roundNumber >= 14 || isNaN(roundNumber)) {
+    alert("Please enter a number between 1 and 14");
+    return;
+  } else {
+    return roundNumber;
+  }
+};
+// let roundNumber = prompt("Enter your preferred number of rounds. Max: 14");
+promptGenerator();
+// console.log(roundNumber);
+// console.log(promptGenerator());
 
 const CachedDom = () => {
     const player_RPS = document.querySelectorAll(".linkedDot");
@@ -69,7 +88,7 @@ function playRound(playerSelection, computerSelection) {
 // Handle game logic and update the round count
 function handleRound(playerSelection) {
     const {roundCountDom} = CachedDom();
-    if (roundCount < 4) {
+    if (roundCount < roundNumber) {
         const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection);
 
@@ -83,19 +102,15 @@ function handleRound(playerSelection) {
         roundCountDom_value++;
         roundCount++;
         roundCountDom.innerText = `Round: ${roundCountDom_value}`
-        // console.log(roundCountDom.innerText);
-        // roundCountDom.innerText = `Round: ${roundCountDom_value}`
         
-        if (roundCount === 4) {
+        if (roundCount === roundNumber) {
             determineWinner();
-            roundCountDom_value = 4
+            roundCountDom_value = roundNumber
             roundCountDom.innerText = `Round: ${roundCountDom_value}`
             console.log(roundCountDom_value);
         }
     }
 
-    // if(roundCountDom_value > 4) {
-    // }
 }
 
 // Determine the overall winner after 5 rounds
@@ -128,9 +143,6 @@ function setupGame() {
     console.log(roundCountDom);
     const { playerSigns, playerChoice, rps_Images, referee, AiChoice } = CachedDom();
 
-    // if(roundCountDom_value > 4) {
-    //     roundCountDom_value = 4
-    // }
 
     playerSigns.forEach((element, index) => {
         element.addEventListener("click", () => {
