@@ -4,11 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" media="screen and (min-width: 300px)">
+    <link href="./desktop.css" rel="stylesheet" type="text/css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <p>View scores and result on the Console</p>
+    
+    <div class="container">
+        <h1><span class="rock">Rock</span> <span class="paper">Paper</span> <span class="scissors">Scissors</span></h1>
+        <div class="referee"></div>
+        <main>
+            <img class="signs player_rock" src="./assets/Rock.jpg" alt="Rock">
+            <img class="signs player_paper" src="./assets/Paper.jpg" alt="Paper">
+            <img class="signs player_scissors" src="./assets/Scissors.jpg" alt="Scissors">
+
+            <div class="roundCount">
+                <p id="roundCount">Round: 1</p>
+            </div>
+    
+            <div class="player">
+                <h2>Player</h2>
+                <div class="linkedDots">
+                    <div class="linkedDot" id="pinkRock">
+                        <div></div>
+                        <p>Rock</p>
+                    </div>
+                    <div class="linkedDot" id="bluePaper">
+                        <div></div>
+                        <p>Paper</p>
+                    </div>
+                    <div class="linkedDot" id="yellowScissors">
+                        <div></div>
+                        <p>Scissors</p>
+                    </div>
+                </div>
+    
+                <div class="ChoiceDiv">
+                    <img id="PlayerChoice" src="" alt="">
+                </div>
+            </div>
+    
+            <div class="scoreLine">
+                <p class="playerScore">0</p> <span>:</span> <p class="aiScore">0</p>
+            </div>
+    
+            <div class="AI">
+                <h2>AI</h2>
+                <div class="ChoiceDiv">
+                    <img id="AiChoice" src="" alt="">
+                </div>
+            </div>
+        </main>
+        <!-- <p>View scores and result on the Console</p> -->
+        <!-- <button class="restart">Reload the page</button> -->
+    </div>
+    <p class="restart">Reload the page</p>
     <script src="script.js"></script>
 </body>
 </html>

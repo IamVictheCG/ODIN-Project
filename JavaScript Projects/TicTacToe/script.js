@@ -89,7 +89,7 @@ const Gameboard = function () {
         }
     };
 
-    const getBoard = () => board;
+    // const getBoard = () => board;
 
     const placeToken = (row, column, player) => {
         if (board[row][column].getValue() != 0) {
@@ -182,7 +182,7 @@ const Gameboard = function () {
     
     // console.log(isBoardFull);
     // $(restart).click(() => resetBoard())
-    return { placeToken, getBoard, printBoard, checkWinner, handleCellClick, resetBoard, isBoardFull };
+    return { placeToken, printBoard, checkWinner, resetBoard, isBoardFull };
 };
 
 let GameController = function () {
