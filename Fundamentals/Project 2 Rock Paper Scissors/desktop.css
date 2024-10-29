@@ -33,10 +33,6 @@ body {
     justify-content: space-between;
     height: 55%;
     width: 82%;
-    /* color: aliceblue; */
-    /* border: 2px solid pink; */
-    /* margin: auto;
-    margin-top: 150px; */
     position: absolute;
     left: 35%;
     top: 90px;
@@ -52,8 +48,8 @@ main {
     margin: 0%;
 
 
-    .scoreLine {
-        /* border: 2px solid red; */
+    /* .scoreLine {
+        border: 2px solid red;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -64,7 +60,7 @@ main {
         :nth-child(2) {
             margin-inline: 4px;
         }
-    }
+    } */
 
     img.signs{
         display: none;
@@ -75,12 +71,6 @@ main {
         /* border: 2px solid rgb(144, 239, 12); */
         height: 270px;
         width: 30%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding-block: 15px;
-        color: aliceblue;
 
         h2 {
             margin: 0%;
@@ -111,18 +101,16 @@ main {
         .linkedDots {
             display: flex;
             justify-content: space-between;
-            /* border: solid 2px rgb(34, 0, 255); */
-            /* margin-bottom: 20px; */
-            width: 100%;
+            width: 80%;
             
-            :hover {
+            /* :hover {
                 cursor: pointer;
-            }
+            } */
             
             
 
-            #pinkRock {
-                /* border: solid 2px red; */
+            /* #pinkRock {
+                border: solid 2px red;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -146,7 +134,7 @@ main {
                     background-color: #f94ed4;
                     border: solid #f94ed4;
                 }
-            }
+            } */
             
             #bluePaper {
                 /* border: solid 2px red; */
