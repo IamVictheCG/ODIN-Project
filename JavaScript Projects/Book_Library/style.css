@@ -128,7 +128,7 @@ h1 {
         font-size: medium;
     }
     
-    div {
+    form {
         display: flex;
         flex-direction: column;
         

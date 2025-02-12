@@ -8,8 +8,6 @@
     let displayAddBookModal = document.getElementById("add")
     let addBook = document.getElementById("add_submit")
     let closeAddBookModal = document.getElementById("close")
-    // addNewBookModal.classList.remove("motion")
-    // library.classList.remove("libraryMotion")
 
 
 
@@ -21,13 +19,9 @@
 
     closeAddBookModal.addEventListener("click", function() {
         addNewBookModal.classList.add("motion");
-        // addNewBookModal.style.cssText = "transform: translateX(2000px);"
         library.style.cssText = "grid-column: 1/3;";
         addNewBookModal.classList.remove("motion");
         
-        // addNewBookModal.addEventListener("animationend", () => {
-        //     console.log("ended");
-        // });
 
     })
 
@@ -189,12 +183,14 @@
     myLibrary.push(...initialBooks);
     console.log(myLibrary);
 
-    function Book(title, author, publishedYear) {
+    class Book {
+    constructor(title, author, publishedYear) {
         // Constructor for creating new book objects
         this.title = title;
         this.author = author;
         this.publishedYear = publishedYear;
     }
+}
 
     function addBookToLibrary() {
         // Add a new book to the library

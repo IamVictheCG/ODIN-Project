@@ -27,18 +27,18 @@
                 <b>Book Details</b>
                 <img id="close" src="./assets/close.svg" alt="close">
             </div>
-            <div>
+            <form>
                 <label for="title">Title</label>
-                <input name="title" class="add_title" type="text" placeholder="Title">
+                <input name="title" class="add_title" type="text" placeholder="Title" required>
 
                 <label for="author">Author</label>
-                <input name="author" class="add_author" type="text" placeholder="Author">
+                <input name="author" class="add_author" type="text" placeholder="Author" required>
 
                 <label for="publishedYear">Year Published</label>
-                <input name="publishedYear" class="add_publishedYear" type="text" placeholder="Year Published">
+                <input name="publishedYear" class="add_publishedYear" type="text" placeholder="Year Published" minlength="4" required>
     
                 <button id="add_submit">Add</button>
-            </div>
+            </form>
         </div>
     </div>
 
