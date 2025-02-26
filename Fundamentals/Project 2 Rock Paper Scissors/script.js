@@ -174,7 +174,7 @@ function setupGame() {
                 clearInterval(processInterval); // Stop the interval
                 console.log("Interval cleared");
                 refereeWords.parentNode.removeChild(refereeWords)
-                referee.style.display = "none";
+                referee.style.display = "none"; 
                 playerChoice.style.visibility = "visible";
                 AiChoice.style.visibility = "visible";
             }, 1000); // Clear after 1 second

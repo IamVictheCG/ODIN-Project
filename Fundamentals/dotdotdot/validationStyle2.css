@@ -1,0 +1,92 @@
+#list {
+    display: none;
+}
+#carousel {
+    margin-top: 30px;
+    width: 45%;
+    height: 100vh;
+}
+#menu {
+    display: inline-block;
+    border: 4px solid red;
+    /* width: fit-content; */
+    /* background-color: green; */
+
+    button {
+        width: 100px;
+    }
+    
+    ul {
+        display: none;
+        align-items: center;
+        list-style: none;
+        /* background-color: rgb(26, 0, 128); */
+        margin: 0%;
+        padding: 5px 0;
+        
+        li {
+            margin-top: 6px;
+            width: 100%;
+            /* padding: 8px 12px; */
+            background-color: rgb(175, 173, 174);
+        }
+
+        :hover {
+            background-color: rgb(86, 84, 84);
+        }
+    }
+}
+
+
+
+
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* Dropdown button */
+.dropdown-toggle {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    list-style: none;
+    padding: 5px 0;
+    min-width: 150px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Class to make dropdown visible */
+.visible {
+    display: block;
+}

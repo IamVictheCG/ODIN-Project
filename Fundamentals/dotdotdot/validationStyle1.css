@@ -1,0 +1,27 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+  padding: 1em;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  padding: 0.5em;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+.valid {
+  /* border-color: rgb(0, 255, 0); */
+  color: rgb(0, 255, 0);
+}
+
+.invalid {
+  /* border-color: rgb(0, 255, 0); */
+  color: rgb(255, 0, 0);
+}
